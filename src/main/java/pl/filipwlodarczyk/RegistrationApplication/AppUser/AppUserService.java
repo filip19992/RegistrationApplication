@@ -24,11 +24,6 @@ private final ConfirmationTokenService confirmationTokenService;
 
 private final static String USER_NOT_FOUND_MSG = "Nie znaleziono użytkownika z taki emailem %s";
 
-//    public AppUserService(AppUserRepository appUserRepository, BCryptPasswordEncoder bCryptPasswordEncoder, ConfirmationTokenService confirmationTokenService) {
-//        this.appUserRepository = appUserRepository;
-//        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-//        this.confirmationTokenService = confirmationTokenService;
-//    }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -58,5 +53,9 @@ private final static String USER_NOT_FOUND_MSG = "Nie znaleziono użytkownika z 
         );
         confirmationTokenService.saveConfirmationToken(confirmationToken);
         return token;
+    }
+
+    public int enableAppUser(String email) {
+        return appUserRepository.enableAppUser(email);
     }
 }

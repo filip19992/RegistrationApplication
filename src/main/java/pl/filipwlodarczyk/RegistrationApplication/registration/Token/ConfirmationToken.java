@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table
 public class ConfirmationToken {
 
     @SequenceGenerator(name = "token_sequence",
